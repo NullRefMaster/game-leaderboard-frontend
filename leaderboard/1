@@ -1,0 +1,17 @@
+[
+    {
+        "rank": 1,
+        "player": "Player1",
+        "time": "00:10:30"
+    },
+    {
+        "rank": 2,
+        "player": "Player2",
+        "time": "00:11:20"
+    },
+    {
+        "rank": 3,
+        "player": "Player3",
+        "time": "00:12:05"
+    }
+]
