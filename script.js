@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Function to fetch leaderboard data for a specific level
     async function fetchLeaderboardData(level) {
         try {
-            const response = await fetch(`http://game-leaderboard.azurewebsites.net/leaderboard/${level}`);
+            const response = await fetch(`https://game-leaderboard.azurewebsites.net/leaderboard/${level}`);
             if (!response.ok) {
                 throw new Error('Failed to fetch data');
             }
