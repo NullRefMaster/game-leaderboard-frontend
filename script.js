@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Function to fetch leaderboard data for a specific level
     async function fetchLeaderboardData(level) {
         try {
-            const response = await fetch(`/leaderboard/${level}`);
+            const response = await fetch(`http://game-leaderboard.azurewebsites.net/leaderboard/${level}`);
             if (!response.ok) {
                 throw new Error('Failed to fetch data');
             }
@@ -43,13 +43,17 @@ document.addEventListener('DOMContentLoaded', () => {
                 </tr>
             </thead>
             <tbody>
-                ${data.map(entry => `
+                ${data.map(entry => {
+            const minutes = Math.floor(entry.time / 60000);
+            const seconds = Math.floor((entry.time % 60000) / 1000).toFixed(0).padStart(2, '0');
+            const milliseconds = (entry.time % 1000).toFixed(0).padStart(3, '0');
+            return `
                     <tr>
                         <td>${entry.rank}</td>
                         <td>${entry.player}</td>
-                        <td>${entry.time}</td>
+                        <td>${minutes}:${seconds}:${milliseconds}</td>
                     </tr>
-                `).join('')}
+                `}).join('')}
             </tbody>
         `;
         container.innerHTML = ''; // Clear existing content
